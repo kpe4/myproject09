@@ -17,8 +17,10 @@ def login_get():
     return render_template('login.html')
 
 def login_post():
-    person = request.form('username')
-    return render_template('profile.html', person=person)
+    class_name = request.form['class_name']
+    places = request.form['places']
+    error = "Недостаточно данных"
+    return render_template('profile.html', class_name=class_name, places=places, error=error)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=15000)
